@@ -1,8 +1,7 @@
 function sumFibs(number) {
-  let sum = 0;
   let FibonnacciNumber1 = 0;
   let FibonnacciNumber2 = 1;
-
+  let sum = 0;
   while (FibonnacciNumber2 <= number) {
     if (FibonnacciNumber2 % 2 === 1) {
       sum += FibonnacciNumber2;
