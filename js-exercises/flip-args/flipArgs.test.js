@@ -8,3 +8,9 @@ describe('Flip the arguments', () => {
     expect(flipArgs('a', 'b', 'c', 'd', 'e')).toEqual(['e', 'd', 'c', 'b', 'a']);
   });
 });
+
+describe('Type Of flipArgs', () => {
+  it('should return object', () => {
+    expect(typeof flipArgs()).toBe('object');
+  });
+});
