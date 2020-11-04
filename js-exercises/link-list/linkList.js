@@ -3,11 +3,20 @@ import LinkListNode from './linkListNode';
 export default class LinkList {
   constructor() {
     this.head = null;
+  this.next = null
   }
 
   prepend(value) {
-    // code here
-  }
+
+    
+    if(LinkList.head){
+      LinkList.head.next = new LinkListNode (LinkList.head.value);;
+      LinkList.head.value = value;
+    } else {
+      LinkList.head = new LinkListNode (value)
+    }
+      
+    }
 
   append(value) {
     // code here
