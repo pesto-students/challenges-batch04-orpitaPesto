@@ -1,7 +1,11 @@
 class Cycled {
-  constructor(array) {
+  constructor(array, reversed = false) {
     this.array = array;
-    this.pointer = 0;
+    if (reversed) {
+      this.pointer = array.length - 1;
+    } else {
+      this.pointer = 0;
+    }
   }
 
   checkNextIndex() {
@@ -57,17 +61,21 @@ class Cycled {
   }
 
   set index(value) {
-    if (value === 0 && this.pointer !== 0) {
-      this.pointer = 0;
+    if (value >= 0 && value <= this.array.length - 1) {
+      this.pointer = value;
     } else {
-      this.calculateIndex(value);
+      this.pointer = this.array.length - 1;
     }
   }
 
   reversed() {
     this.array.reverse();
     this.pointer = this.array.length - 1;
-    return this.array;
+    return new Cycled(this.array, true);
+  }
+
+  indexOf(item) {
+    return this.array.indexOf(item);
   }
 }
 export { Cycled };
