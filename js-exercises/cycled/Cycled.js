@@ -77,5 +77,7 @@ class Cycled {
   indexOf(item) {
     return this.array.indexOf(item);
   }
+
+  
 }
 export { Cycled };
