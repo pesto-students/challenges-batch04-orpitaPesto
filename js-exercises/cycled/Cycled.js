@@ -65,16 +65,34 @@ class Cycled {
   }
 
   reversed() {
-    this.array.reverse();
+    // this.array.reverse();
+    const reversedArray = [];
+    this.array.forEach(element => {
+      reversedArray.push(element);
+    });
+    reversedArray.reverse();
     // () => ({ value: this.array[0] });
     // return this.next;
     return {
-      next: () => ({ value: this.array[0] }),
+      next: () => ({ value: reversedArray[0] }),
     };
   }
 
   indexOf(value) {
+    // let computedIndex = 0;
+    // this.array.forEach((element, ind) => {
+    //   if (this.array[element] === value) {
+    //     computedIndex = ind;
+    //   }
+    // });
+    // return computedIndex;
     return this.array.indexOf(value);
+  }
+
+  [Symbol.iterator]() {
+    return {
+      next: () => ({ value: this.array[0], done: true }),
+    };
   }
 }
 export { Cycled };
