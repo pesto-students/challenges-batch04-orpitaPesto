@@ -1,11 +1,7 @@
 class Cycled {
-  constructor(array, reversed = false) {
+  constructor(array) {
     this.array = array;
-    if (reversed) {
-      this.pointer = array.length - 1;
-    } else {
-      this.pointer = 0;
-    }
+    this.pointer = 0;
   }
 
   checkNextIndex() {
@@ -70,14 +66,15 @@ class Cycled {
 
   reversed() {
     this.array.reverse();
-    this.pointer = this.array.length - 1;
-    return new Cycled(this.array, true);
+    // () => ({ value: this.array[0] });
+    // return this.next;
+    return {
+      next: () => ({ value: this.array[0] }),
+    };
   }
 
-  indexOf(item) {
-    return this.array.indexOf(item);
+  indexOf(value) {
+    return this.array.indexOf(value);
   }
-
-  
 }
 export { Cycled };
