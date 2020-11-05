@@ -79,14 +79,12 @@ class Cycled {
   }
 
   indexOf(value) {
-    // let computedIndex = 0;
-    // this.array.forEach((element, ind) => {
-    //   if (this.array[element] === value) {
-    //     computedIndex = ind;
-    //   }
-    // });
-    // return computedIndex;
-    return this.array.indexOf(value);
+    for (let i = 0; i < this.array.length; i++) {
+      if (this.array[i] === value) {
+        return i;
+      }
+    }
+    return -1;
   }
 
   [Symbol.iterator]() {
